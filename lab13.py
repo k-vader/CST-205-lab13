@@ -61,9 +61,6 @@ def blankOutText(text, minLength, percentCoverage):
 # 
 def replaceTextWithArrayOfWords(text, array):
 
-  newString = ""
-  foundIndex = 0
-  
   splitWords = text.split()
   currentIndex = 0 # keeps track of the index of our words
   wordCount = 0 # keeps track of the ocurrence of the found word
