@@ -37,7 +37,7 @@ def getInput(dict):
 # @param percentCoverage - Frequency of replacement, IE: .1 would be 10% of the sentence was omitted
 # Example, input "This is a very nice sentence"
 # return, "This is a [0] nice [1]"
-def replaceText(text, minLength, percentCoverage):
+def blankOutText(text, minLength, percentCoverage):
   totalWords = text.split()
     
   # determines how many times we should iterate, depending on size of string
@@ -82,7 +82,7 @@ def reset():
   userArray = []
       
 def test():
-  text = replaceText("The quick brown fox jumped over the big and lazy cat", 3, .25)
+  text = blankOutText("The quick brown fox jumped over the big and lazy cat", 3, .25)
   printNow("Mad Lib: %s" % text)
   for i in range(0, userInputCount):
     inputString = requestString("Enter a word")
