@@ -1,3 +1,9 @@
+# Ngoan Nguyen
+# Chris Pina
+# Ken Vader
+# Lab 13, Part 1
+# 12/8/2015
+
 import time
 import random
 
@@ -17,19 +23,6 @@ story = """
 		I mean, come on. Doesn't Santa Claus use Amazon like the rest of us?
 		"Do you know the movie 'The Polar Express'?" Tom asks, answering my question with a question.
 		"""
-userArray = []
-    
-# Create a dictionary to use with input function. We can use the keys
-# from the dictionary to prompt the user for specific word types in the
-# input function
-userWords = {"adjective": "", "number": ""} 
-    		
-# Input function 
-#    
-def getInput(dict):
-  # TODO: Add some validation to prevent empty strings
-  for key in dict:
-    dict[key] = requestString("Enter a " + key)
 
 # This method accepts text and randomly removes content, leaving a "[index]" in its place
 # @param text - the input text
@@ -58,7 +51,6 @@ def blankOutText(text, minLength, percentCoverage):
   return returnString
   
 # This method accepts a string and replaces the marked words with items from an array
-# 
 def replaceTextWithArrayOfWords(text, array):
 
   splitWords = text.split()
@@ -78,11 +70,11 @@ def reset():
   global userArray
   userArray = []
       
-def test():
-  text = blankOutText("The quick brown fox jumped over the big and lazy cat", 3, .25)
+def madLib():
+  text = blankOutText(story, 3, .25)
   printNow("Mad Lib: %s" % text)
   for i in range(0, userInputCount):
-    inputString = requestString("Enter a word")
+    inputString = requestString("Enter word %d out of %d" % (i + 1, userInputCount))
     userArray.append(inputString)
 
   # now let's replace our text with the user's words
