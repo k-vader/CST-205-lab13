@@ -1,9 +1,9 @@
 # Ken Vader
 # Ngoan Nguyen
 # Chris Pina
-# Lab 11
-# 12/1/2015
-# LAB 13, MAD LIBS
+# Ken Vader
+# Lab 13, Part 1
+# 12/8/2015
 
 import time
 import random
@@ -32,7 +32,10 @@ def getInput(inputCount):
   wordsRemaining = inputCount  
   while(wordsRemaining > 0):
     inputString = requestString("Enter a word (%d left), or enter 'Exit'" % wordsRemaining)
-    if inputString.lower() == "exit":
+    if inputString == None:
+      reset()
+      return false
+    elif inputString.lower() == "exit":
       reset()
       return false
     elif len(inputString) > 0:
@@ -72,7 +75,6 @@ def blankOutText(text, minLength, percentCoverage):
   return returnString
   
 # This method accepts a string and replaces the marked words with items from an array
-# 
 def replaceTextWithArrayOfWords(text, array):
 
   splitWords = text.split()
@@ -92,8 +94,7 @@ def reset():
   global userArray
   userArray = []
       
-def madLibs():
-
+def madLib():
   minLength = 3 # Use this to filter out short words
   percentCoverage = .08 # percent replacement frequency, 1 is the most
   text = blankOutText(story, minLength, percentCoverage)          
